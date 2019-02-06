@@ -6,8 +6,16 @@ package com.shenpotato;
  */
 public class App 
 {
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+    public int a;
+    public int b;
+
+    public App(int a, int b) {
+        this.a = a;
+        this.b = b;
     }
+
+    void function1(){
+        System.out.println("fatherApp");
+    }
+
 }
