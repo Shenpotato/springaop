@@ -15,7 +15,7 @@ public class Main2 {
         int result = arithmeticCalculatorImpl.add(3,6);
         System.out.println(result);
 
-        result =  arithmeticCalculatorImpl.div(4,2);
+        result =  arithmeticCalculatorImpl.div(4,0);
         System.out.println(result);
 
     }

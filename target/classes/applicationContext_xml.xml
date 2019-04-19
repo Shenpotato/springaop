@@ -21,6 +21,9 @@
         </aop:aspect>
         <aop:aspect ref="loggingAspect" order="2">
             <aop:before method="beforeMethod" pointcut-ref="pointcut"></aop:before>
+            <aop:after method="afterMethod" pointcut-ref="pointcut"></aop:after>
+            <aop:after-returning method="afterReturning" pointcut-ref="pointcut" returning="result"></aop:after-returning>
+            <aop:after-throwing method="afterThrowing" pointcut-ref="pointcut" throwing="ex"></aop:after-throwing>
         </aop:aspect>
     </aop:config>
 </beans>
