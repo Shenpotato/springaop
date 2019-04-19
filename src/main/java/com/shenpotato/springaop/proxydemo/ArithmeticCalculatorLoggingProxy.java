@@ -26,7 +26,7 @@ public class ArithmeticCalculatorLoggingProxy {
         Class[] interfaces = new Class[]{ArithmeticCalculator.class};
         //当调用代理对象其中的方法时，该执行的代码
         InvocationHandler h = new InvocationHandler() {
-            /*
+           /*
             * proxy:正在返回的那个代理对象，一般情况下，在invoke方法中都不使用该对象,因为invoke本身就是调用proxy代理对象中的方法，将会造成循环调用
             * method:正在被调用的方法
             * args:调用方法时传入的参数
@@ -34,14 +34,25 @@ public class ArithmeticCalculatorLoggingProxy {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 /*
-                * System.out.println(proxy.toString());
+                * * System.out.println(proxy.toString());
                 * 调用proxy方法的测试
                 * */
                 String methodName=method.getName();
                 //开始日志内容
                 System.out.println("The method " +methodName +" begins with "+ Arrays.asList(args));
                 //执行方法
-                Object result = method.invoke(target,args);
+                Object result = null;
+                try {
+                    //前置通知位置
+                    result = method.invoke(target,args);
+                    //返回通知位置
+                }catch (Exception ex){
+                    //异常通知位置
+                }finally {
+                    //后置通知位置
+                }
+
+
                 //结束日志内容
                 System.out.println("The method " +methodName+" ends with " +result);
                 return result;
@@ -51,5 +62,4 @@ public class ArithmeticCalculatorLoggingProxy {
 
         return proxy;
     }
-
 }

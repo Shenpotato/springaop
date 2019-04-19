@@ -1,4 +1,6 @@
-package com.shenpotato.springaop.proxydemo;
+package com.shenpotato.springaop_xml;
+
+import org.springframework.stereotype.Component;
 
 /**
  * Created by Shen_potato on 2018/11/23.
@@ -11,6 +13,7 @@ public class ArithmeticCalculatorImpl implements ArithmeticCalculator {
     }
 
     @Override
+
     public int sub(int i, int j) {
         int result = i - j;
         return result;
@@ -27,4 +30,13 @@ public class ArithmeticCalculatorImpl implements ArithmeticCalculator {
         int result = i / j;
         return result;
     }
+
+    @Override
+    public int addd(int i, int j,int o) {
+        int result = i+j+o;
+        return result;
+    }
+
+
+
 }
